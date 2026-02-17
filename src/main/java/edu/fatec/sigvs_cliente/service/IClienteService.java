@@ -14,4 +14,6 @@ public interface IClienteService {
     public Cliente atualizarCliente(Cliente cliente);
 
     public void deletarCliente(Long id);
+
+    public String publishEvent(Cliente cliente);
 }
