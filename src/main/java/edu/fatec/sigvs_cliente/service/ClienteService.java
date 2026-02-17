@@ -8,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
-import java.net.ConnectException;
 
 @Service
 public class ClienteService implements IClienteService {
@@ -68,7 +67,7 @@ public class ClienteService implements IClienteService {
     public String publishEvent(Cliente cliente) {
         logger.info(">>>>>> publishEvent de cliente iniciado...");
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8080/api/v1/clientes";
+        String url = "http://localhost:8081/api/v1/clientes";
         ResponseEntity<Cliente> response = restTemplate.postForEntity(url, cliente, Cliente.class);
         if (response.getStatusCode().is2xxSuccessful()) {
             logger.info("Evento publicado com sucesso. Status: " + response.getStatusCode());
